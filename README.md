@@ -2,12 +2,16 @@
 September 13, 2017
 JetsonHacks
 
-Install TensorFlow v1.3 on NVIDIA Jetson TX2 Development Kit
+June 11, 2020
+Xiyun Liu
+Updated for python3.7 installation
 
-Jetson TX2 is flashed with JetPack 3.1 which installs:
-* L4T 28.1 an Ubuntu 16.04 64-bit variant (aarch64)
-* CUDA 8.0
-* cuDNN 6.0
+Install TensorFlow v1.15.2 on NVIDIA Jetson TX2 Development Kit
+
+Jetson TX2 is flashed with JetPack 4.3 which installs:
+* L4T 28.1 an Ubuntu 18.04 64-bit variant (aarch64)
+* CUDA 10.0
+* cuDNN 7.6.3
 
 ### Pre-built installation
 
@@ -24,27 +28,16 @@ $ ./createSwapfile.sh -d ~/ -s 8
 After TensorFlow has finished building, the swap file is no longer needed and may be removed.
 
 
-These scripts support either Python 2.7 or Python 3.5.
+These scripts support either Python 2.7 or Python 3.7.
 TensorFlow should be built in the following order:
 
-## For Python 2.7
-
-#### installPrerequisites.sh
-Installs Java and other dependencies needed. Also builds Bazel version 0.5.2.
-
-#### cloneTensorFlow.sh
-Git clones v1.3.0 from the TensorFlow repository and patches the source code for aarch64
-
-#### setTensorFlowEV.sh
-Sets up the TensorFlow environment variables. This script will ask for the default python library path. There are many settings to chose from, the script picks the usual suspects. Uses python 2.7.
-
-## For Python 3.5
+## For Python 3.7
 
 #### installPrerequisitesPy3.sh
-Installs Java and other dependencies needed. Also builds Bazel version 0.5.2.
+Installs Java and other dependencies needed. Also builds Bazel version 0.24.1.
 
 #### cloneTensorFlow.sh
-Git clones v1.3.0 from the TensorFlow repository and patches the source code for aarch64
+Git clones v1.15.2 from the TensorFlow repository and patches the source code for aarch64
 
 #### setTensorFlowEVPy3.sh
 Sets up the TensorFlow environment variables. This script will ask for the default python library path. There are many settings to chose from, the script picks the usual suspects. Uses python 3.5.
@@ -59,13 +52,10 @@ Builds TensorFlow.
 Once TensorFlow has finished building, this script may be used to create a 'wheel' file, a package for installing with Python. The wheel file will be in the $HOME directory.
 
 #### Install wheel file
-For Python 2.X
-
-$ pip install $HOME/<em>wheel file</em>
 
 For Python 3.X
 
-$ pip3 install $HOME/<em>wheel file</em> 
+$ pip3 install $HOME/tensorflow-1.15.2-cp37-cp37m-linux_aarch64.whl
 
 
 ### Notes
@@ -76,6 +66,7 @@ This TensorFlow installation procedure was derived from these discussion threads
 <li>http://stackoverflow.com/questions/39783919/tensorflow-on-nvidia-tx1/</li>
 <li>https://devtalk.nvidia.com/default/topic/1000717/tensorflow-on-jetson-tx2/</li>
 <li>https://github.com/tensorflow/tensorflow/issues/9697</li>
+<li>https://note.youdao.com/ynoteshare1/index.html?id=3779eaea012bfec0fd1dc3e6b27a2b62&type=note</li>
 </ul>
 
 ### Release Notes
